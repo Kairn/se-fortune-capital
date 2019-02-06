@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>SEFC Portfolio</title>
+  <!--Bootstrap 4 CSS-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <!--Custom CSS-->
+  <link rel="stylesheet" href="css/style.css">
+  <!--Favicon-->
+  <link rel="shortcut icon" type="image/png" href="images/logo.png"/>
+  <!--Extra Fonts-->
+  <link href='https://fonts.googleapis.com/css?family=Titillium Web' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Condiment' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
+</head>
+<body>
+  <header>
+    <!--Top Navbar-->
+    <nav style="background-color: white;" class="navbar navbar-expand-lg navbar-light sticky-top">
+      <a id="navbar-brand" class="navbar-brand" href="index.html">
+        <img src="images/logo.png" width="50" height="50" class="d-inline-block align-top" alt="SE-logo">
+        <strong style="font-size: 40px; font-weight: 600; font-family: 'Condiment'; color: rgba(0, 0, 0, 0.75)">SE Fortune Capital</strong>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-links" aria-controls="nav-links" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="nav-links">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="news.html">Market</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="portfolio.html">Business</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Assets</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Support</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://finance.yahoo.com/" target="_blank">Yahoo</a>
+          </li>
+        </ul>
+        <button id="nav-contact" class="btn btn-outline-dark my-2 my-sm-0" type="submit">Contact Us</button>
+      </div>
+    </nav>
+    <!--Head Banner-->
+    <div id="banner-jumbo-h" class="jumbotron">
+      <div class="container">
+        <h1 id="first-h" class="display-4 show" style="margin-bottom: 10px; font-family: 'Lato'; font-size: 40px;">SEFC Portfolio Management System.</h1>
+        <h1 id="second-h" class="display-4 show" style="font-family: 'Lato'; font-size: 40px;">Top Tier User Experience.</h1>
+      </div>
+    </div>
+  </header>
+  <div id="no-user-page" style="margin-bottom: 100px; display: none;">
+    <!--Login Form-->
+    <section id="login-section" class="container sect">
+      <h1 style="margin-bottom: 60px;">Login to an existing account</h1>
+      <form method="POST" id="login-form">
+        <div class="form-group row">
+          <label for="login-email" class="col-sm-2 col-form-label" style="font-size: 20px;">Email</label>
+          <div class="col-sm-10">
+            <input type="email" class="form-control" id="login-email" placeholder="Email" required>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="lgoin-password" class="col-sm-2 col-form-label" style="font-size: 20px;">Password</label>
+          <div class="col-sm-10">
+            <input type="password" class="form-control" id="lgoin-password" placeholder="Password" required>
+          </div>
+        </div>
+        <div id="login-error" class="alert alert-danger" role="alert" style="display: none;">Invalid user credentials</div>
+        <button id="login-btn" style="margin-top: 20px; font-size: 20px;" type="submit" class="btn btn-profile">Login</button>
+      </form>
+      <br>
+    </section>
+    <!--Register Form-->
+    <section id="register-section" class="container sect">
+      <h1 style="margin-bottom: 60px;">Open a new account (it's FREE)</h1>
+      <form id="register-form" method="POST">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="register-email">Email*</label>
+            <input type="email" class="form-control" id="register-email" required placeholder="Email">
+            <small class="form-text text-muted">This is your username.</small>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="register-password">Password*</label>
+            <input type="password" class="form-control" id="register-password" required placeholder="Password">
+            <small class="form-text text-muted">Your password must be at least 6 characters long.</small>
+          </div>
+        </div>
+        <div style="height: 10px;"></div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="register-firstName">First Name*</label>
+            <input type="text" class="form-control" id="register-firstName" required placeholder="First Name">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="register-lastName">Last Name*</label>
+            <input type="text" class="form-control" id="register-lastName" required placeholder="Last Name">
+          </div>
+        </div>
+        <div style="height: 10px;"></div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="register-phone">Phone #</label>
+            <input type="text" class="form-control" id="register-phone" placeholder="(000) 000-0000">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="register-zip">Zipcode</label>
+            <input type="text" class="form-control" id="register-zip" placeholder="Zipcode">
+          </div>
+        </div>
+        <div style="height: 10px;"></div>
+        <div class="form-row">
+          <div class="form-group col-12">
+            <label for="register-deposit">Initial Deposit*</label>
+            <input min="0" type="number" class="form-control" id="register-deposit" required placeholder="$Amount">
+            <small class="form-text text-muted">We need an initial deposit to set up your account.</small>
+          </div>
+        </div>
+        <div id="register-error" class="alert alert-danger" role="alert" style="display: none;">We are unable to create this account (maybe this email is already registered)</div>
+        <div style="height: 20px;"></div>
+        <div class="custom-control custom-checkbox">
+          <input type="checkbox" class="custom-control-input" id="register-check" required>
+          <label class="custom-control-label" for="register-check">By checking this box, you agree to our <span class="text-primary">Terms and Conditions</span></label>
+        </div>
+        <button id="register-btn" style="font-size: 20px; margin-top: 40px;" type="submit" class="btn btn-profile">Register</button>
+      </form>
+    </section>
+  </div>
+  <div id="user-page" style="margin-bottom: 120px; display: none;">
+    <!--Portfolio Dashboard-->
+    <section id="dashboard" class="container sect">
+      <h1 style="margin-bottom: 60px; font-size: 40px;">Welcome, <span id="user-name">John Doe</span></h1>
+      <div style="height: 20px;"></div>
+      <h1 style="margin-bottom: 60px;">Account Summary</h1>
+      <div class="jumbotron text-center bg-color-profile">
+        <h1 style="font-size: 40px;">Total Assets: $<span id="total-assets">0.00</span></h1>
+      </div>
+      <div style="height: 80px;"></div>
+      <div class="row text-center">
+        <div class="col-lg-7 col-md-12 col-sm-12">
+          <h1 style="margin-bottom: 40px; font-size: 24px;">Asset Distribution</h1>
+          <canvas id="asset-chart"></canvas>
+        </div>
+        <div class="col-lg-5 col-md-12 col-sm-12">
+          <h1 style="margin-bottom: 40px; font-size: 24px;">Asset Table</h1>
+          <table class="table table-striped" style="font-size: 20px;">
+            <thead>
+              <tr class="bg-color-profile text-left">
+                <th scope="col">Symbol</th>
+                <th scope="col">Units</th>
+                <th scope="col">Last Price</th>
+                <th scope="col">Total</th>
+              </tr>
+            </thead>
+            <tbody id="asset-table-body" class="text-left" style="font-size: 16px;">
+              <tr>
+                <th scope="row">Asset1</th>
+                <td>0.00</td>
+                <td>0.00</td>
+                <td>$0.00</td>
+              </tr>
+              <tr>
+                <th scope="row">Asset2</th>
+                <td>0.00</td>
+                <td>0.00</td>
+                <td>$0.00</td>
+              </tr>
+              <tr>
+                <th scope="row">Asset3</th>
+                <td>0.00</td>
+                <td>0.00</td>
+                <td>$0.00</td>
+              </tr>
+            </tbody>
+          </table>
+          <nav>
+            <ul class="pagination justify-content-center">
+              <li class="page-item">
+                <span id="turn-page-left" class="page-link text-color-profile">Previous</span>
+              </li>
+              <li class="page-item text-right">
+                <span id="turn-page-right" class="page-link text-color-profile">Next</span>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </section>
+    <div style="height: 40px;"></div>
+    <!--User Action Form-->
+    <section id="action-form" class="container sect">
+      <h1 style="margin-bottom: 60px;">Manage Portfolio</h1>
+      <div class="row">
+        <!--Nav Tabs-->
+        <div class="col-3" style="font-size: 20px;">
+          <div class="nav flex-column nav-pills" id="action-tabs" role="tablist" aria-orientation="vertical">
+            <a class="nav-link pill-profile active" id="deposit-tab" data-toggle="pill" href="#deposit-form" role="tab" aria-selected="true">Deposit</a>
+            <a class="nav-link pill-profile" id="withdraw-tab" data-toggle="pill" href="#withdraw-form" role="tab" aria-selected="false">Withdraw</a>
+            <a class="nav-link pill-profile" id="buy-tab" data-toggle="pill" href="#buy-form" role="tab" aria-selected="false">Buy</a>
+            <a class="nav-link pill-profile" id="sell-tab" data-toggle="pill" href="#sell-form" role="tab" aria-selected="false">Sell</a>
+          </div>
+        </div>
+        <div class="col-2"></div>
+        <!--Nav Content-->
+        <div class="col-7">
+          <div class="tab-content" id="action-forms">
+            <div class="tab-pane fade show active" id="deposit-form" role="tabpanel">
+              <form id="deposit-form-real" method="POST">
+                <div class="form-group">
+                  <label for="bank-account-d">Bank Account Number</label>
+                  <input type="text" class="form-control" id="bank-account-d" placeholder="Account#">
+                </div>
+                <div style="height: 10px;"></div>
+                <div class="form-group">
+                  <label for="deposit-amount">Transfer Amount</label>
+                  <input type="number" min="1" step="0.01" class="form-control" id="deposit-amount" placeholder="$Amount" required>
+                </div>
+                <div style="height: 10px;"></div>
+                <div class="custom-control custom-checkbox mb-3">
+                  <input type="checkbox" class="custom-control-input" id="deposit-c" required>
+                  <label class="custom-control-label" for="deposit-c">Agree to Terms and Conditions</label>
+                </div>
+                <div style="height: 10px;"></div>
+                <button type="submit" class="btn btn-profile">Confirm Deposit</button>
+              </form>
+            </div>
+            <div class="tab-pane fade" id="withdraw-form" role="tabpanel">
+              <form id="withdraw-form-real" method="POST">
+                <div class="form-group">
+                  <label for="bank-account-w">Bank Account Number</label>
+                  <input type="text" class="form-control" id="bank-account-w" placeholder="Account#">
+                </div>
+                <div style="height: 10px;"></div>
+                <div class="form-group">
+                  <label for="withdraw-amount">Transfer Amount</label>
+                  <input type="number" min="1" step="0.01" class="form-control" id="withdraw-amount" placeholder="$Amount" required>
+                </div>
+                <div style="height: 10px;"></div>
+                <div class="custom-control custom-checkbox mb-3">
+                  <input type="checkbox" class="custom-control-input" id="withdraw-c" required>
+                  <label class="custom-control-label" for="withdraw-c">Agree to Terms and Conditions</label>
+                </div>
+                <div style="height: 10px;"></div>
+                <button type="submit" class="btn btn-profile">Confirm Withdraw</button>
+              </form>
+            </div>
+            <div class="tab-pane fade" id="buy-form" role="tabpanel">
+              <form id="buy-form-real" method="POST">
+                <div class="form-group">
+                  <div style="margin-bottom: 10px;">Asset Type (Choose One)</div>
+                  <div class="custom-control custom-radio">
+                    <input type="radio" class="custom-control-input" id="stock-radio" value="stock" name="asset-type" required>
+                    <label class="custom-control-label" for="stock-radio">Common Stock</label>
+                  </div>
+                  <div style="margin-bottom: 10px;" class="custom-control custom-radio mb-3">
+                    <input type="radio" class="custom-control-input" id="crypto-radio" value="crypto" name="asset-type" required>
+                    <label class="custom-control-label" for="crypto-radio">Cryptocurrency</label>
+                  </div>
+                  <label for="stock-buy">Symbol</label>
+                  <input type="text" class="form-control" id="stock-buy" placeholder="e.g. AAPL">
+                </div>
+                <div style="height: 10px;"></div>
+                <div class="form-group">
+                  <label for="crypto-buy">Name</label>
+                  <select class="custom-select" id="crypto-buy">
+                    <option value="" selected>Choose One</option>
+                    <option value="BTCUSDT">Bitcoin USD</option>
+                    <option value="EOSUSDT">EOS USD</option>
+                    <option value="ETHUSDT">Ethereum USD</option>
+                    <option value="BNBUSDT">Binance Coin USD</option>
+                    <option value="BCCUSDT">Bitcoin Cash USD</option>
+                    <option value="XRPUSDT">Ripple USD</option>
+                    <option value="LTCUSDT">Litecoin USD</option>
+                    <option value="ETCUSDT">Ethereum Classic USD</option>
+                    <option value="IOTAUSDT">MIOTA USD</option>
+                    <option value="QTUMUSDT">Qtum USD</option>
+                  </select>
+                </div>
+                <div style="height: 10px;"></div>
+                <div class="form-group">
+                  <label for="buy-amount">Units/Shares</label>
+                  <input type="number" min="0" class="form-control" id="buy-amount" placeholder="e.g. 1.0" required>
+                </div>
+                <div style="height: 10px;"></div>
+                <div class="custom-control custom-checkbox mb-3">
+                  <input type="checkbox" class="custom-control-input" id="buy-c" required>
+                  <label class="custom-control-label" for="buy-c">Agree to Terms and Conditions</label>
+                </div>
+                <div style="height: 10px;"></div>
+                <button id="calculate-buy" type="button" class="btn btn-info">Calculate</button>
+                <div style="display: inline-block; width: 5px;"></div>
+                <button type="submit" class="btn btn-profile">Confirm Buy</button>
+                <div style="height: 5px;"></div>
+                <small style="display: block;" class="text-danger">*You must agree to our terms and click Calculate before confirming a transaction</small>
+                <div style="margin-top: 20px; font-size: 20px; font-weight: bold;" class="text-right">Total: $<span id="buy-total">0.00</span></div>
+              </form>
+            </div>
+            <div class="tab-pane fade" id="sell-form" role="tabpanel">
+              <form id="sell-form-real" method="POST">
+                <div class="form-group">
+                  <label for="sell-type">Asset (Choose One)</label>
+                  <select class="custom-select" id="sell-type" required>
+                    <option value="" selected>Choose One</option>
+                  </select>
+                </div>
+                <div style="height: 10px;"></div>
+                <div class="form-group">
+                  <label for="sell-amount">Units/Shares</label>
+                  <input type="number" min="0" class="form-control" id="sell-amount" placeholder="e.g. 1.0" required>
+                </div>
+                <div style="height: 10px;"></div>
+                <div class="custom-control custom-checkbox mb-3">
+                  <input type="checkbox" class="custom-control-input" id="sell-c" required>
+                  <label class="custom-control-label" for="sell-c">Agree to Terms and Conditions</label>
+                </div>
+                <div style="height: 10px;"></div>
+                <button id="calculate-sell" type="button" class="btn btn-info">Calculate</button>
+                <div style="display: inline-block; width: 5px;"></div>
+                <button type="submit" class="btn btn-profile">Confirm Sell</button>
+                <div style="height: 5px;"></div>
+                <small style="display: block;" class="text-danger">*You must agree to our terms and click Calculate before confirming a transaction</small>
+                <div style="margin-top: 20px; font-size: 20px; font-weight: bold;" class="text-right">Total: $<span id="sell-total">0.00</span></div>
+              </form>
+            </div>
+          </div>
+          <div id="transaction-failure" style="margin-top: 20px; display: none;" class="alert alert-danger" role="alert">We cannot process your request, please verify inputs</div>
+          <div id="transaction-success" style="margin-top: 20px; display: none;" class="alert alert-success" role="alert">Transaction was successfully processed</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3">
+          <button id="logout-btn" style="margin-top: 80px; font-size: 20px;" type="button" class="btn btn-profile">Logout</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3">
+          <button id="close-btn" data-toggle="modal" data-target="#close-model" style="margin-top: 40px; font-size: 20px;" type="button" class="btn btn-danger">Close Account</button>
+        </div>
+      </div>
+      <div class="modal fade" id="close-model" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Close Account</h5>
+            </div>
+            <div class="modal-body">
+              This action cannot be reversed. Please make sure to withdraw all your assets first.
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button id="close-confirm" type="button" class="btn btn-danger">Proceed</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!--Footer-->
+  <footer id="foot-jumbo" class="jumbotron" style="padding-bottom: 20px; margin-top: 80px;">
+    <div class="container">
+      <img id="foot-logo" src="images/logo.png" width="64px" height="64px" alt="foot-logo">
+      <h4>SE Fortune Capital</h4>
+      <p class="lead" style="margin: 0 auto 40px;">Invest like a boss</p>
+      <p>2018© SE Fortune Capital — All Rights Reserved | site map | terms & conditions | privacy policy | accessibility policy</p>
+      <p style="margin: 20px auto 60px">Investment Products: Not FDIC-Insured · No Bank Guarantee · May Lose Value</p>
+      <p class="legal">As a private investor, you need to request verbal and/or written information and explanations until you are sure you understand the warnings. Don't stop until you are fully aware, in quantitative terms, of what you stand to gain and lose, and what other potential investments there are with different risk/reward ratios.</p>
+      <p class="legal">It is essential that investment risk warnings be clear and sufficient not only to provide legal protection, but also to ensure that the message truly gets home. Firms and advisors should only sell products with a warning that conveys the real level of risk clearly. Unfortunately, what should be done and what is common practice are two different things. As an investor, it's crucial to know how much of your money you could lose and what circumstances could cause this to occur. If you are uncomfortable with the risks of the investment, remember there are always lower-risk alternatives.</p>
+      <p class="legal" style="margin: 0; margin-top: 20px;"><em>Note: This is a mock project, not a real business.</em></p>
+      <p class="legal" style="margin: 0;"><em>Designer: Eddy Soma</em></p>
+    </div>
+  </footer>
+  <!--JavaScripts Go Here-->
+  <div id="javascripts" style="display: none;">
+    <!--jQuery-->
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <!--Popper JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <!--Bootstrap JS-->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <!--Chart JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.js"></script>
+    <!--Firebase JS-->
+    <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
+    <!--Local JS-->
+    <script src="js/utilities.js"></script>
+    <script src="js/portfolio.js"></script>
+  </div>
+</body>
+</html>
