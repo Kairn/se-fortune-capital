@@ -2,6 +2,8 @@
 [![MIT license](https://img.shields.io/badge/License-MIT-blue.svg)](https://lbesson.mit-license.org/)
 [![Website naereen.github.io](https://img.shields.io/website-up-down-green-red/https/naereen.github.io.svg)](http://esoma-sefc.s3-website.us-east-2.amazonaws.com/)  
 
+**!!! WARNING !!! Due to IEX API migration in JUNE 2019, most of the features on the website are no longer functional. The plan is in place for making the necessary code changes in order to accommodate the migration. I will update once the fixes are complete.**
+
 SE Fortune Capital (SEFC) is an online investment website that provides the latest market data and allows users to invest in real market assets with virtual currency.
 
 ***This website is merely a market simulator, meaning that no real transaction will ever occur. Users can deposit any amount of USD into their accounts, and any asset that a user owns remains virtual forever.***
