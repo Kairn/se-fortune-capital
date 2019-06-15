@@ -21,10 +21,10 @@ const appendKey = function(url) {
 // Cryptocurrency Aggregate Data
 const cryptoEndPoint = "https://api.iextrading.com/1.0/stock/market/crypto";
 // Sector Performance Data
-const sectorEndPoint = "https://api.iextrading.com/1.0/stock/market/sector-performance";
+const sectorEndPoint = appendKey(prependBase("stock/market/sector-performance", true));
 // Gainers & Losers Data
-const gainersEndPoint = "https://api.iextrading.com/1.0/stock/market/list/gainers";
-const losersEndPoint = "https://api.iextrading.com/1.0/stock/market/list/losers";
+const gainersEndPoint = appendKey(prependBase("stock/market/list/gainers", true));
+const losersEndPoint = appendKey(prependBase("stock/market/list/losers", true));
 
 // Fetch Options
 const fetchOptionsDefault = {

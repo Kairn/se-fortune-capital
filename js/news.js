@@ -168,7 +168,7 @@ const updateGainersTable = function(data) {
 		// Fill elements
 		$symbol.html(data[i].symbol).addClass("stock-symbol");
 		$name.html(shortenName(data[i].companyName)).addClass("company-name");
-		$price.html(toTwoDecimal(data[i].latestPrice)).addClass("font-weight-bold");
+		$price.html("$" + toTwoDecimal(data[i].latestPrice)).addClass("font-weight-bold");
 		$change.html("+" + toTwoDecimal(parseFloat(data[i].changePercent) * 100) + "%").addClass("up");
 		// Attach elements
 		$head.append($symbol, $name);
@@ -191,7 +191,7 @@ const updateLosersTable = function(data) {
 		// Fill elements
 		$symbol.html(data[i].symbol).addClass("stock-symbol");
 		$name.html(shortenName(data[i].companyName)).addClass("company-name");
-		$price.html(toTwoDecimal(data[i].latestPrice)).addClass("font-weight-bold");
+		$price.html("$" + toTwoDecimal(data[i].latestPrice)).addClass("font-weight-bold");
 		$change.html(toTwoDecimal(parseFloat(data[i].changePercent) * 100) + "%").addClass("down");
 		// Attach elements
 		$head.append($symbol, $name);
@@ -332,9 +332,9 @@ $(function() {
 	// setInterval(getCryptoData, 5000);
 	// Automatically update all data during business hours
 	if (isBusinessHour(new Date())) {
-		// setInterval(getSectorData, 5000);
-		// setInterval(getGainersData, 5000);
-		// setInterval(getLosersData, 5000);
+		setInterval(getSectorData, 5000);
+		setInterval(getGainersData, 5000);
+		setInterval(getLosersData, 5000);
 	}
 	// Add event listener to the search button
 	$("#search").on("click", function() {
