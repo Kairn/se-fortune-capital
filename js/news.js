@@ -35,7 +35,7 @@ const formatCrypto = function(data, symbol) {
 		$(symbol + "cp").removeClass("up");
 		$(symbol + "cp").removeClass("down");
 	}
-}
+};
 
 // Formatting sector data
 const formatSector = function(secName, secData) {
@@ -58,9 +58,9 @@ const formatSector = function(secName, secData) {
 		$("#sec" + secName).removeClass("up-bg");
 		$("#sec" + secName).removeClass("down-bg");
 	}
-}
+};
 
-// Update crypto prices in the table
+// Update crypto prices in the table (DEPRECATED)
 const updateCryptoTable = function(data) {
 	// BTC
 	const btcSymbol = "#btc-";
@@ -111,7 +111,28 @@ const updateCryptoTable = function(data) {
 	const qtumSymbol = "#qtum-";
 	const qtumData = data[17];
 	formatCrypto(qtumData, qtumSymbol);
-}
+};
+
+// All Cryptos
+const ALL_CRYPTOS = [
+	"btc",
+	"eos",
+	"eth",
+	"bnb",
+	// "bch",
+	"xrp",
+	"ltc",
+	"etc",
+	// "iot",
+	"qtum",
+];
+
+// Update Each Crypto Data in the Table
+const updateEachCrypto = function(data) {
+	const symbol = data.symbol.toLowerCase();
+	const cSymbol = `#${symbol.substring(0, symbol.indexOf("usdt"))}-`;
+	formatCrypto(data, cSymbol);
+};
 
 // Update sector performance
 const updateSectorPerformance = function(data) {
@@ -152,7 +173,7 @@ const updateSectorPerformance = function(data) {
 				break;
 		}
 	}
-}
+};
 
 // Update gainers table
 const updateGainersTable = function(data) {
@@ -175,7 +196,7 @@ const updateGainersTable = function(data) {
 		$newRow.append($head, $change, $price);
 		$("#gainers-tbody").append($newRow);
 	}
-}
+};
 
 // Update losers table
 const updateLosersTable = function(data) {
@@ -198,14 +219,14 @@ const updateLosersTable = function(data) {
 		$newRow.append($head, $change, $price);
 		$("#losers-tbody").append($newRow);
 	}
-}
+};
 
 // Launch the search update process with animation
 const animateSearch = function(data) {
 	$("#response-zone").slideUp(2000, function() {
 		updateKeyStockData(data);
 	})
-}
+};
 
 // Update key stock data and make an API call to get news
 const updateKeyStockData = function(data) {
@@ -243,7 +264,7 @@ const updateKeyStockData = function(data) {
 		$("#key-cp").removeClass("up").removeClass("down").html("0.00%");
 	}
 	fetchFromAPI(makeCompanyNewsUrl(data.symbol), fetchOptionsDefault, updateNews, logStatus);
-}
+};
 
 // Update news
 const updateNews = function(data) {
@@ -276,51 +297,54 @@ const updateNews = function(data) {
 		}
 	}
 	$("#response-zone").slideDown(2000);
-}
+};
 
 // Clear gainers/losers table data
 const clearGainers = function() {
 	$("#gainers-tbody").empty();
-}
+};
 
 const clearLosers = function() {
 	$("#losers-tbody").empty();
-}
+};
 
 // Clear search results
 const clearSearch = function() {
 	$("#news-zone").empty();
-}
+};
 
 // Display error message for unknown search string
 const displayError = function() {
 	$("#error-zone").slideDown().delay(2000).slideUp(1000);
-}
+};
 
 // Make an API call to retrieve crypto data
 const getCryptoData = function() {
-	fetchFromAPI(cryptoEndPoint, fetchOptionsDefault, updateCryptoTable, logStatus);
-}
+	// fetchFromAPI(cryptoEndPoint, fetchOptionsDefault, updateCryptoTable, logStatus);
+	ALL_CRYPTOS.forEach((symbol) => {
+		fetchFromAPI(makeCryptoQuoteUrl(symbol), fetchOptionsDefault, updateEachCrypto, logStatus);
+	});
+};
 
 // Make an API call to retrieve sector data
 const getSectorData = function() {
 	fetchFromAPI(sectorEndPoint, fetchOptionsDefault, updateSectorPerformance, logStatus);
-}
+};
 
 // Make an API call to retrieve gainers data
 const getGainersData = function() {
 	fetchFromAPI(gainersEndPoint, fetchOptionsDefault, updateGainersTable, logStatus);
-}
+};
 
 // Make an API call to retrieve losers data
 const getLosersData = function() {
 	fetchFromAPI(losersEndPoint, fetchOptionsDefault, updateLosersTable, logStatus);
-}
+};
 
 // Start the two-step process of calling stock quote and news API
 const getSearchResult = function(symbol) {
 	fetchFromAPI(makeStockQuoteUrl(symbol), fetchOptionsDefault, animateSearch, displayError);
-}
+};
 
 // Wait until the document is ready for jQuery
 $(function() {
@@ -329,7 +353,7 @@ $(function() {
 	getSectorData();
 	getGainersData();
 	getLosersData();
-	// setInterval(getCryptoData, 5000);
+	setInterval(getCryptoData, 5000);
 	// Automatically update all data during business hours
 	if (isBusinessHour(new Date())) {
 		setInterval(getSectorData, 5000);

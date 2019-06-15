@@ -32,7 +32,7 @@ const drawAssetChart = function(chartDataPoints) {
 		},
 		options: chartOptions
 	});
-}
+};
 
 // Asset table variables
 var currentAssetTablePage = 0;
@@ -60,7 +60,7 @@ const firebaseInit = function() {
 	firebase.initializeApp(firebaseConfig);
 	fireAuth = firebase.auth();
 	fireDB = firebase.database();
-}
+};
 
 // Check user's login status
 const isLoggedin = function() {
@@ -70,7 +70,7 @@ const isLoggedin = function() {
 	else {
 		return false;
 	}
-}
+};
 
 // Get a user's profile
 const getUserProfile = function() {
@@ -80,12 +80,12 @@ const getUserProfile = function() {
 	else {
 		fireUser = null;
 	}
-}
+};
 
 // Get the database reference of a user's assets
 const getAssetsRef = function() {
 	return fireDB.ref("Users/" + fireUser.uid + "/Assets");
-}
+};
 
 // Take a snapshot of the current user's portfolio data and store it in a global variable
 const getPortfolioSnapshot = function(updateFunc) {
@@ -153,7 +153,7 @@ const getPortfolioSnapshot = function(updateFunc) {
 			}
 		})
 		.catch(logStatus);
-}
+};
 
 // Display the current user's full name
 const displayUserName = function() {
@@ -167,7 +167,7 @@ const displayUserName = function() {
 				$("#user-name").html(userFirstName + " " + userLastName);
 			})
 	}
-}
+};
 
 // Refresh the dashboard entirely with a newer snapshot
 const dashboardRefresh = function() {
@@ -264,14 +264,14 @@ const dashboardRefresh = function() {
 	$("#total-assets").html(toTwoDecimal(userAssetTotal));
 	drawAssetChart(chartDataPoints);
 	displayAssetTable();
-}
+};
 
 // Display asset table's content based on the current page
 const displayAssetTable = function() {
 	$userAssetList = $("#asset-table-body").find("tr");
 	$userAssetList.addClass("no-show");
 	$userAssetList.slice(parseInt(currentAssetTablePage) * 4, (parseInt(currentAssetTablePage) + 1) * 4).removeClass("no-show");
-}
+};
 
 // Switch table page
 const changeAssetTablePage = function(direction) {
@@ -290,7 +290,7 @@ const changeAssetTablePage = function(direction) {
 		return;
 	}
 	displayAssetTable();
-}
+};
 
 // Register a new user
 const registerNewUser = function(event) {
@@ -321,7 +321,7 @@ const registerNewUser = function(event) {
 			console.log(error);
 			displayRegisterError();
 		})
-}
+};
 
 // Logout a current user
 const logoutUser = function() {
@@ -332,7 +332,7 @@ const logoutUser = function() {
 			})
 			.catch(logStatus);
 	}
-}
+};
 
 // Login a returning user
 const loginUser = function(event) {
@@ -344,7 +344,7 @@ const loginUser = function(event) {
 			startActivities();
 		})
 		.catch(displayLoginError);
-}
+};
 
 // Close an account
 const closeAccount = function() {
@@ -362,7 +362,7 @@ const closeAccount = function() {
 				alert("This action is sensitive, please re-login and try again.");
 			});
 	}
-}
+};
 
 // Decide which form to display based on user's login status
 const formRefresh = function() {
@@ -375,22 +375,22 @@ const formRefresh = function() {
 		$("#no-user-page").slideDown(2000);
 	}
 	getUserProfile();
-}
+};
 
 // Display error if unable to register
 const displayRegisterError = function() {
 	$("#register-error").slideDown().delay(2000).slideUp(1000);
-}
+};
 
 // Display error if unable to login
 const displayLoginError = function() {
 	$("#login-error").slideDown().delay(2000).slideUp(1000);
-}
+};
 
 // Display error if transaction unsuccessful
 const displayTxFailure = function() {
 	$("#transaction-failure").slideDown().delay(2000).slideUp();
-}
+};
 
 // Display message if transaction successful
 const displayTxSuccess = function(reload) {
@@ -399,7 +399,7 @@ const displayTxSuccess = function(reload) {
 			location.reload();
 		}
 	})
-}
+};
 
 // Load funds into a user's account
 const makeDeposit = function(event) {
@@ -415,7 +415,7 @@ const makeDeposit = function(event) {
 			displayTxSuccess(true);
 		})
 		.catch(displayTxFailure);
-}
+};
 
 // Withdraw funds from a user's account
 const makeWithdraw = function(event) {
@@ -437,13 +437,13 @@ const makeWithdraw = function(event) {
 			}
 		})
 		.catch(displayTxFailure);
-}
+};
 
 // Clear the total fields
 const clearTotal = function() {
 	$("#buy-total").html("0.00");
 	$("#sell-total").html("0.00");
-}
+};
 
 // Make an API call to calculate the total buy cost
 const calculateBuy = function() {
@@ -487,7 +487,7 @@ const calculateBuy = function() {
 				.catch(logStatus);
 		}
 	}
-}
+};
 
 // Calculate the sell total using existing data
 const calculateSell = function() {
@@ -499,7 +499,7 @@ const calculateSell = function() {
 	let userSellAmount = parseFloat($("#sell-amount").val());
 	let userSellTotal = toTwoDecimal(userSellUnitPrice * userSellAmount);
 	$("#sell-total").html(userSellTotal);
-}
+};
 
 // Confirm an asset purchase transaction
 const confirmBuy = function(event) {
@@ -537,7 +537,7 @@ const confirmBuy = function(event) {
 				displayTxFailure();
 			});
 	}
-}
+};
 
 // Confirm an asset purchase transaction
 const confirmSell = function(event) {
@@ -583,14 +583,14 @@ const confirmSell = function(event) {
 				});
 		}
 	}
-}
+};
 
 // Get the page ready for user activity
 const startActivities = function() {
 	formRefresh();
 	displayUserName();
 	getPortfolioSnapshot(dashboardRefresh);
-}
+};
 
 // Wait until the document is ready for jQuery
 $(function() {
