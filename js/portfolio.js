@@ -39,12 +39,12 @@ var currentAssetTablePage = 0;
 
 // Firebase access details
 const firebaseConfig = {
-    apiKey: "AIzaSyD_c6cYcULphAbIrB1otDHNiAYI5SQj4b8",
-    authDomain: "se-fortune-captial.firebaseapp.com",
-    databaseURL: "https://se-fortune-captial.firebaseio.com",
-    projectId: "se-fortune-captial",
-    storageBucket: "se-fortune-captial.appspot.com",
-    messagingSenderId: "1033306849919"
+	apiKey: "AIzaSyD_c6cYcULphAbIrB1otDHNiAYI5SQj4b8",
+	authDomain: "se-fortune-captial.firebaseapp.com",
+	databaseURL: "https://se-fortune-captial.firebaseio.com",
+	projectId: "se-fortune-captial",
+	storageBucket: "se-fortune-captial.appspot.com",
+	messagingSenderId: "1033306849919"
 };
 
 // Firebase setup
@@ -103,56 +103,56 @@ const getPortfolioSnapshot = function(updateFunc) {
 	getUserProfile();
 	let userAssetsRef = getAssetsRef();
 	userAssetsRef.once("value")
-	.then(function(snapshot) {
-		let newSnapshot = snapshot.val();
-		symbolArray = Object.keys(newSnapshot);
-		amountArray = Object.values(newSnapshot);
-		fireAssetsSnapshot["symbols"] = symbolArray;
-		fireAssetsSnapshot["amounts"] = amountArray;
-		fireAssetsSnapshot["prices"] = priceArray;
-		for (let i in symbolArray) {
-			if (symbolArray[i] === "USD") {
-				priceArray[i] = 1.0;
-				if (priceArray.length === symbolArray.length && !priceArray.includes(undefined)) {
-					updateFunc();
-					return;
-				}
-			}
-			else if (symbolArray[i].endsWith("USDT")) {
-				fetch(cryptoEndPoint, fetchOptionsDefault)
-				.then(function(response) {
-					return response.json();
-				})
-				.then(function(data) {
-					for (let j in data) {
-						if (data[j]["symbol"] === symbolArray[i]) {
-							priceArray[i] = parseFloat(data[j]["latestPrice"]);
-							if (priceArray.length === symbolArray.length && !priceArray.includes(undefined)) {
-								updateFunc();
-								return;
-							}
-						}
-					}
-				})
-				.catch(logStatus)
-			}
-			else {
-				fetch(makeStockQuoteUrl(symbolArray[i]), fetchOptionsDefault)
-				.then(function(response) {
-					return response.json();
-				})
-				.then(function(data) {
-					priceArray[i] = parseFloat(data["latestPrice"]);
+		.then(function(snapshot) {
+			let newSnapshot = snapshot.val();
+			symbolArray = Object.keys(newSnapshot);
+			amountArray = Object.values(newSnapshot);
+			fireAssetsSnapshot["symbols"] = symbolArray;
+			fireAssetsSnapshot["amounts"] = amountArray;
+			fireAssetsSnapshot["prices"] = priceArray;
+			for (let i in symbolArray) {
+				if (symbolArray[i] === "USD") {
+					priceArray[i] = 1.0;
 					if (priceArray.length === symbolArray.length && !priceArray.includes(undefined)) {
 						updateFunc();
 						return;
 					}
-				})
-				.catch(logStatus);
+				}
+				else if (symbolArray[i].endsWith("USDT")) {
+					fetch(cryptoEndPoint, fetchOptionsDefault)
+						.then(function(response) {
+							return response.json();
+						})
+						.then(function(data) {
+							for (let j in data) {
+								if (data[j]["symbol"] === symbolArray[i]) {
+									priceArray[i] = parseFloat(data[j]["latestPrice"]);
+									if (priceArray.length === symbolArray.length && !priceArray.includes(undefined)) {
+										updateFunc();
+										return;
+									}
+								}
+							}
+						})
+						.catch(logStatus)
+				}
+				else {
+					fetch(makeStockQuoteUrl(symbolArray[i]), fetchOptionsDefault)
+						.then(function(response) {
+							return response.json();
+						})
+						.then(function(data) {
+							priceArray[i] = parseFloat(data["latestPrice"]);
+							if (priceArray.length === symbolArray.length && !priceArray.includes(undefined)) {
+								updateFunc();
+								return;
+							}
+						})
+						.catch(logStatus);
+				}
 			}
-		}
-	})
-	.catch(logStatus);
+		})
+		.catch(logStatus);
 }
 
 // Display the current user's full name
@@ -161,11 +161,11 @@ const displayUserName = function() {
 	let userLastName;
 	if (isLoggedin()) {
 		fireDB.ref("Users/" + fireUser.uid).once("value")
-		.then(function(snapshot) {
-			userFirstName = snapshot.val()["First Name"];
-			userLastName = snapshot.val()["Last Name"];
-			$("#user-name").html(userFirstName + " " + userLastName);
-		})
+			.then(function(snapshot) {
+				userFirstName = snapshot.val()["First Name"];
+				userLastName = snapshot.val()["Last Name"];
+				$("#user-name").html(userFirstName + " " + userLastName);
+			})
 	}
 }
 
@@ -304,33 +304,33 @@ const registerNewUser = function(event) {
 
 	// Create a new account
 	fireAuth.createUserWithEmailAndPassword(userEmail, userPassword)
-	.then(function() {
-		getUserProfile();
-		// Create a new database entry
-		let newUser = {};
-		let userUID = fireUser.uid;
-		newUser["First Name"] = toTitle(userFirstName);
-		newUser["Last Name"] = toTitle(userLastName);
-		newUser["Role"] = "Client";
-		newUser["Assets"] = {};
-		newUser["Assets"]["USD"] = userInitialDeposit;
-		fireDB.ref("Users").child(userUID).set(newUser);
-		startActivities();
-	})
-	.catch(function(error) {
-		console.log(error);
-		displayRegisterError();
-	})
+		.then(function() {
+			getUserProfile();
+			// Create a new database entry
+			let newUser = {};
+			let userUID = fireUser.uid;
+			newUser["First Name"] = toTitle(userFirstName);
+			newUser["Last Name"] = toTitle(userLastName);
+			newUser["Role"] = "Client";
+			newUser["Assets"] = {};
+			newUser["Assets"]["USD"] = userInitialDeposit;
+			fireDB.ref("Users").child(userUID).set(newUser);
+			startActivities();
+		})
+		.catch(function(error) {
+			console.log(error);
+			displayRegisterError();
+		})
 }
 
 // Logout a current user
 const logoutUser = function() {
 	if (isLoggedin()) {
 		fireAuth.signOut()
-		.then(function() {
-			location.reload();
-		})
-		.catch(logStatus);
+			.then(function() {
+				location.reload();
+			})
+			.catch(logStatus);
 	}
 }
 
@@ -340,10 +340,10 @@ const loginUser = function(event) {
 	let userEmail = $("#login-email").val().trim();
 	let userPassword = $("#lgoin-password").val().trim();
 	fireAuth.signInWithEmailAndPassword(userEmail, userPassword)
-	.then(function() {
-		startActivities();
-	})
-	.catch(displayLoginError);
+		.then(function() {
+			startActivities();
+		})
+		.catch(displayLoginError);
 }
 
 // Close an account
@@ -351,16 +351,16 @@ const closeAccount = function() {
 	if (isLoggedin()) {
 		let removedID = fireUser.uid;
 		fireUser.delete()
-		.then(function() {
-			fireDB.ref("Users").child(removedID).remove();
-		})
-		.then(function() {
-			window.location.href = "index.html";
-		})
-		.catch(function(error) {
-			console.log(error);
-			alert("This action is sensitive, please re-login and try again.");
-		});
+			.then(function() {
+				fireDB.ref("Users").child(removedID).remove();
+			})
+			.then(function() {
+				window.location.href = "index.html";
+			})
+			.catch(function(error) {
+				console.log(error);
+				alert("This action is sensitive, please re-login and try again.");
+			});
 	}
 }
 
@@ -408,13 +408,13 @@ const makeDeposit = function(event) {
 	let userAssetsRef = getAssetsRef();
 	let userNewBalance;
 	userAssetsRef.once("value")
-	.then(function(snapshot) {
-		let userCurrentBalance = parseFloat(snapshot.val()["USD"]);
-		userNewBalance = toTwoDecimal(userCurrentBalance + userDeposit);
-		userAssetsRef.child("USD").set(userNewBalance);
-		displayTxSuccess(true);
-	})
-	.catch(displayTxFailure);
+		.then(function(snapshot) {
+			let userCurrentBalance = parseFloat(snapshot.val()["USD"]);
+			userNewBalance = toTwoDecimal(userCurrentBalance + userDeposit);
+			userAssetsRef.child("USD").set(userNewBalance);
+			displayTxSuccess(true);
+		})
+		.catch(displayTxFailure);
 }
 
 // Withdraw funds from a user's account
@@ -424,19 +424,19 @@ const makeWithdraw = function(event) {
 	let userAssetsRef = getAssetsRef();
 	let userNewBalance;
 	userAssetsRef.once("value")
-	.then(function(snapshot) {
-		let userCurrentBalance = parseFloat(snapshot.val()["USD"]);
-		if (userWithdraw > userCurrentBalance) {
-			displayTxFailure();
-			return;
-		}
-		else {
-			userNewBalance = userCurrentBalance - userWithdraw;
-			userAssetsRef.child("USD").set(userNewBalance);
-			displayTxSuccess(true);
-		}
-	})
-	.catch(displayTxFailure);
+		.then(function(snapshot) {
+			let userCurrentBalance = parseFloat(snapshot.val()["USD"]);
+			if (userWithdraw > userCurrentBalance) {
+				displayTxFailure();
+				return;
+			}
+			else {
+				userNewBalance = userCurrentBalance - userWithdraw;
+				userAssetsRef.child("USD").set(userNewBalance);
+				displayTxSuccess(true);
+			}
+		})
+		.catch(displayTxFailure);
 }
 
 // Clear the total fields
@@ -456,19 +456,19 @@ const calculateBuy = function() {
 			let cryptoName = $("#crypto-buy").val();
 			let cryptoAmount = parseFloat($("#buy-amount").val());
 			fetch(cryptoEndPoint, fetchOptionsDefault)
-			.then(function(response) {
-				return response.json();
-			})
-			.then(function(cryptoData) {
-				let buyTotal;
-				for (let i in cryptoData) {
-					if (cryptoData[i]["symbol"] === cryptoName && cryptoData[i]["latestPrice"]) {
-						buyTotal = cryptoAmount * parseFloat(cryptoData[i]["latestPrice"]);
-						$("#buy-total").html(toTwoDecimal(buyTotal));
+				.then(function(response) {
+					return response.json();
+				})
+				.then(function(cryptoData) {
+					let buyTotal;
+					for (let i in cryptoData) {
+						if (cryptoData[i]["symbol"] === cryptoName && cryptoData[i]["latestPrice"]) {
+							buyTotal = cryptoAmount * parseFloat(cryptoData[i]["latestPrice"]);
+							$("#buy-total").html(toTwoDecimal(buyTotal));
+						}
 					}
-				}
-			})
-			.catch(logStatus);
+				})
+				.catch(logStatus);
 		}
 		return;
 	}
@@ -477,14 +477,14 @@ const calculateBuy = function() {
 			let stockName = $("#stock-buy").val().trim().toUpperCase();
 			let stockAmount = parseFloat($("#buy-amount").val());
 			fetch(makeStockQuoteUrl(stockName), fetchOptionsDefault)
-			.then(function(response) {
-				return response.json();
-			})
-			.then(function(stockData) {
-				let buyTotal = stockAmount * parseFloat(stockData["latestPrice"]);
-				$("#buy-total").html(toTwoDecimal(buyTotal));
-			})
-			.catch(logStatus);
+				.then(function(response) {
+					return response.json();
+				})
+				.then(function(stockData) {
+					let buyTotal = stockAmount * parseFloat(stockData["latestPrice"]);
+					$("#buy-total").html(toTwoDecimal(buyTotal));
+				})
+				.catch(logStatus);
 		}
 	}
 }
@@ -517,25 +517,25 @@ const confirmBuy = function(event) {
 			userNewAssetName = $("#stock-buy").val().trim().toUpperCase();
 		}
 		userAssetsRef.once("value")
-		.then(function(snapshot) {
-			if(parseFloat(snapshot.val()["USD"]) < userBuyCost) {
-				displayTxFailure();
-				return;
-			}
-			else {
-				userNewBalance = parseFloat(snapshot.val()["USD"]) - userBuyCost;
-				userAssetsRef.child("USD").set(userNewBalance);
-				if (snapshot.val()[userNewAssetName]) {
-					userNewAssetAmount += parseFloat(snapshot.val()[userNewAssetName]);
+			.then(function(snapshot) {
+				if (parseFloat(snapshot.val()["USD"]) < userBuyCost) {
+					displayTxFailure();
+					return;
 				}
-				userAssetsRef.child(userNewAssetName).set(userNewAssetAmount);
-				displayTxSuccess(true);
-			}
-		})
-		.catch(function(error) {
-			console.log(error);
-			displayTxFailure();
-		});
+				else {
+					userNewBalance = parseFloat(snapshot.val()["USD"]) - userBuyCost;
+					userAssetsRef.child("USD").set(userNewBalance);
+					if (snapshot.val()[userNewAssetName]) {
+						userNewAssetAmount += parseFloat(snapshot.val()[userNewAssetName]);
+					}
+					userAssetsRef.child(userNewAssetName).set(userNewAssetAmount);
+					displayTxSuccess(true);
+				}
+			})
+			.catch(function(error) {
+				console.log(error);
+				displayTxFailure();
+			});
 	}
 }
 
@@ -553,34 +553,34 @@ const confirmSell = function(event) {
 			let userNewBalance;
 			let userNewAssetBalance;
 			userAssetsRef.once("value")
-			.then(function(snapshot) {
-				let newSnapshot = snapshot.val();
-				userNewAssetBalance = parseFloat(newSnapshot[userSellType]) - userSellAmount;
-				userNewBalance = parseFloat(newSnapshot["USD"]) + userSellTotal;
-				userAssetsRef.child(userSellType).set(userNewAssetBalance);
-				userAssetsRef.child("USD").set(userNewBalance);
-				displayTxSuccess(true);
-			})
-			.catch(function(error) {
-				console.log(error);
-				displayTxFailure();
-			});
+				.then(function(snapshot) {
+					let newSnapshot = snapshot.val();
+					userNewAssetBalance = parseFloat(newSnapshot[userSellType]) - userSellAmount;
+					userNewBalance = parseFloat(newSnapshot["USD"]) + userSellTotal;
+					userAssetsRef.child(userSellType).set(userNewAssetBalance);
+					userAssetsRef.child("USD").set(userNewBalance);
+					displayTxSuccess(true);
+				})
+				.catch(function(error) {
+					console.log(error);
+					displayTxFailure();
+				});
 		}
 		else {
 			userSellTotal = parseFloat(fireAssetsSnapshot["prices"][userAssetIndex]) * userHasAmount;
 			let userNewBalance;
 			userAssetsRef.once("value")
-			.then(function(snapshot) {
-				let newSnapshot = snapshot.val();
-				userNewBalance = parseFloat(newSnapshot["USD"]) + parseFloat(userSellTotal);
-				userAssetsRef.child(userSellType).remove();
-				userAssetsRef.child("USD").set(userNewBalance);
-				displayTxSuccess(true);
-			})
-			.catch(function(error) {
-				console.log(error);
-				displayTxFailure();
-			});
+				.then(function(snapshot) {
+					let newSnapshot = snapshot.val();
+					userNewBalance = parseFloat(newSnapshot["USD"]) + parseFloat(userSellTotal);
+					userAssetsRef.child(userSellType).remove();
+					userAssetsRef.child("USD").set(userNewBalance);
+					displayTxSuccess(true);
+				})
+				.catch(function(error) {
+					console.log(error);
+					displayTxFailure();
+				});
 		}
 	}
 }

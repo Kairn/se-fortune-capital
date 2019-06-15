@@ -118,38 +118,38 @@ const updateSectorPerformance = function(data) {
 	for (let i in data) {
 		switch (data[i].name) {
 			case "Energy":
-			formatSector("En", data[i].performance);
-			break;
+				formatSector("En", data[i].performance);
+				break;
 			case "Consumer Discretionary":
-			formatSector("Cd", data[i].performance);
-			break;
+				formatSector("Cd", data[i].performance);
+				break;
 			case "Consumer Staples":
-			formatSector("Cs", data[i].performance);
-			break;
+				formatSector("Cs", data[i].performance);
+				break;
 			case "Financials":
-			formatSector("Fi", data[i].performance);
-			break;
+				formatSector("Fi", data[i].performance);
+				break;
 			case "Health Care":
-			formatSector("Hc", data[i].performance);
-			break;
+				formatSector("Hc", data[i].performance);
+				break;
 			case "Industrials":
-			formatSector("In", data[i].performance);
-			break;
+				formatSector("In", data[i].performance);
+				break;
 			case "Materials":
-			formatSector("Ma", data[i].performance);
-			break;
+				formatSector("Ma", data[i].performance);
+				break;
 			case "Real Estate":
-			formatSector("Re", data[i].performance);
-			break;
+				formatSector("Re", data[i].performance);
+				break;
 			case "Technology":
-			formatSector("Te", data[i].performance);
-			break;
+				formatSector("Te", data[i].performance);
+				break;
 			case "Utilities":
-			formatSector("Ut", data[i].performance);
-			break;
+				formatSector("Ut", data[i].performance);
+				break;
 			case "Communication Services":
-			formatSector("Co", data[i].performance);
-			break;
+				formatSector("Co", data[i].performance);
+				break;
 		}
 	}
 }
@@ -265,8 +265,8 @@ const updateNews = function(data) {
 			let $time = $("<p></p>").addClass("lead");
 			let $summary = $("<p></p>");
 			$header.html(data[i].headline).attr("target", "_blank").attr("href", data[i].url);
-			$time.html(data[i].datetime.replace("T", " "));
-			$summary.html(data[i].summary);
+			$time.html(formatDateTime(data[i].datetime));
+			$summary.html(trimSummary(data[i].summary));
 			$newCol.append($header, $time, $summary);
 			if (i < data.length - 1) {
 				$newCol.append($("<div></div>").addClass("news-div"));
@@ -329,12 +329,12 @@ $(function() {
 	getSectorData();
 	getGainersData();
 	getLosersData();
-	setInterval(getCryptoData, 5000);
+	// setInterval(getCryptoData, 5000);
 	// Automatically update all data during business hours
 	if (isBusinessHour(new Date())) {
-		setInterval(getSectorData, 5000);
-		setInterval(getGainersData, 5000);
-		setInterval(getLosersData, 5000);
+		// setInterval(getSectorData, 5000);
+		// setInterval(getGainersData, 5000);
+		// setInterval(getLosersData, 5000);
 	}
 	// Add event listener to the search button
 	$("#search").on("click", function() {
