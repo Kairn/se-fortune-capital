@@ -119,22 +119,18 @@ const getPortfolioSnapshot = function(updateFunc) {
 					}
 				}
 				else if (symbolArray[i].endsWith("USDT")) {
-					fetch(cryptoEndPoint, fetchOptionsDefault)
+					fetch(makeCryptoQuoteUrl(symbolArray[i].toLowerCase().substring(0, symbolArray[i].indexOf("USDT"))), fetchOptionsDefault)
 						.then(function(response) {
 							return response.json();
 						})
 						.then(function(data) {
-							for (let j in data) {
-								if (data[j]["symbol"] === symbolArray[i]) {
-									priceArray[i] = parseFloat(data[j]["latestPrice"]);
-									if (priceArray.length === symbolArray.length && !priceArray.includes(undefined)) {
-										updateFunc();
-										return;
-									}
-								}
+							priceArray[i] = parseFloat(data.latestPrice);
+							if (priceArray.length === symbolArray.length && !priceArray.includes(undefined)) {
+								updateFunc();
+								return;
 							}
 						})
-						.catch(logStatus)
+						.catch(logStatus);
 				}
 				else {
 					fetch(makeStockQuoteUrl(symbolArray[i]), fetchOptionsDefault)
@@ -455,17 +451,15 @@ const calculateBuy = function() {
 		if ($("#crypto-buy").val()) {
 			let cryptoName = $("#crypto-buy").val();
 			let cryptoAmount = parseFloat($("#buy-amount").val());
-			fetch(cryptoEndPoint, fetchOptionsDefault)
+			fetch(makeCryptoQuoteUrl(cryptoName.toLowerCase().substring(0, cryptoName.indexOf("USDT"))), fetchOptionsDefault)
 				.then(function(response) {
 					return response.json();
 				})
 				.then(function(cryptoData) {
 					let buyTotal;
-					for (let i in cryptoData) {
-						if (cryptoData[i]["symbol"] === cryptoName && cryptoData[i]["latestPrice"]) {
-							buyTotal = cryptoAmount * parseFloat(cryptoData[i]["latestPrice"]);
-							$("#buy-total").html(toTwoDecimal(buyTotal));
-						}
+					if (cryptoData.latestPrice) {
+						buyTotal = cryptoAmount * parseFloat(cryptoData.latestPrice);
+						$("#buy-total").html(toTwoDecimal(buyTotal));
 					}
 				})
 				.catch(logStatus);
