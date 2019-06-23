@@ -1,233 +1,283 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>SEFC Home</title>
-    <!--Bootstrap 4 CSS-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <!--Custom CSS-->
-    <link rel="stylesheet" href="css/style.css">
-    <!--Favicon-->
-    <link rel="shortcut icon" type="image/png" href="images/logo.png"/>
-    <!--Extra Fonts-->
-    <link href='https://fonts.googleapis.com/css?family=Titillium Web' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Condiment' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
-  </head>
-  <body>
-    <header>
-      <!--Top Navbar-->
-      <nav style="background-color: white;" class="navbar navbar-expand-lg navbar-light sticky-top">
-        <a id="navbar-brand" class="navbar-brand" href="index.html">
-          <img src="images/logo.png" width="50" height="50" class="d-inline-block align-top" alt="SE-logo">
-          <strong style="font-size: 40px; font-weight: 600; font-family: 'Condiment'; color: rgba(0, 0, 0, 0.75)">SE Fortune Capital</strong>
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-links" aria-controls="nav-links" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="nav-links">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="news.html">Market</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="portfolio.html">Business</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Assets</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Support</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="https://finance.yahoo.com/" target="_blank">Yahoo</a>
-            </li>
-          </ul>
-          <button id="nav-contact" class="btn btn-outline-dark my-2 my-sm-0" type="submit">Contact Us</button>
-        </div>
-      </nav>
-      <!--Head Banner-->
-      <div id="banner-jumbo-h" class="jumbotron">
-        <div class="container">
-          <h1 id="first-h" class="display-4 hide" style="margin-bottom: 10px; font-family: 'Lato'; font-size: 40px;">Open, Honest, Hardworking.</h1>
-          <h1 id="second-h" class="display-4 hide" style="font-family: 'Lato'; font-size: 40px;">Expertise you need, Service you deserve.</h1>
-        </div>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>SEFC Home</title>
+  <!--Bootstrap 4 CSS-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <!--Custom CSS-->
+  <link rel="stylesheet" href="css/style.css">
+  <!--Favicon-->
+  <link rel="shortcut icon" type="image/png" href="images/logo.png" />
+  <!--Extra Fonts-->
+  <link href='https://fonts.googleapis.com/css?family=Titillium Web' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Condiment' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
+</head>
+
+<body>
+  <header>
+    <!--Top Navbar-->
+    <nav style="background-color: white;" class="navbar navbar-expand-lg navbar-light sticky-top">
+      <a id="navbar-brand" class="navbar-brand" href="index.html">
+        <img src="images/logo.png" width="50" height="50" class="d-inline-block align-top" alt="SE-logo">
+        <strong style="font-size: 40px; font-weight: 600; font-family: 'Condiment'; color: rgba(0, 0, 0, 0.75)">SE
+          Fortune Capital</strong>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-links"
+        aria-controls="nav-links" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="nav-links">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="news.html">Market</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="portfolio.html">Business</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Assets</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Support</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://finance.yahoo.com/" target="_blank">Yahoo</a>
+          </li>
+        </ul>
+        <button id="nav-contact" class="btn btn-outline-dark my-2 my-sm-0" type="submit">Contact Us</button>
       </div>
-      <div id="head-hero" class="jumbotron">
-        <div class="container">
-          <h1 class="display-4">An investment stragegy today</h1>
-          <h1 class="display-4">Will become a great fortune tomorrow.</h1>
-          <p class="lead">We combine the convenience and ease of a digital platform with unbeatable customer service for a decidely modern approach to alternative asset custody.</p>
-          <p>It’s never too late to become an investor. You may be well into middle age before realizing that life is moving quickly, requiring a plan to deal with old age and retirement. Fear can take control if waiting too long to set investment goals but that should go away once you set the plan into motion. Remember that all investments start with the first dollar, whatever your age, income or outlook.</p>
-          <a id="portBtn" class="btn btn-lg btn-profile" href="portfolio.html" role="button">Build Your Portfolio</a>
-          <a id="newsBtn" class="btn btn-lg" href="news.html" role="button">Latest Market Data</a>
-        </div>
-      </div>
-    </header>
-    <!--Famous Quotes-->
-    <section id="intro-section" class="container">
-      <h1>Famous Quotes from experienced investors</h1>
-      <ul id="quote-panel" class="nav nav-pills nav-fill">
-        <li rel="category1" class="nav-item">
-          <span class="nav-link active">Explore opportunities</span>
-        </li>
-        <li rel="category2" class="nav-item">
-          <span class="nav-link">Know yourself</span>
-        </li>
-        <li rel="category3" class="nav-item">
-          <span class="nav-link">Learn the market</span>
-        </li>
-      </ul>
-      <div id="category1" class="show">
-        <blockquote class="blockquote text-center">
-          <p class="mb-0">You do things when the opportunities come along. I’ve had periods in my life when I’ve had a bundle of ideas come along, and I’ve had long dry spells. If I get an idea next week, I’ll do something. If not, I won’t do a damn thing.</p>
-          <footer class="blockquote-footer">Warren Buffett in <cite title="Source Title">Finance Blog</cite></footer>
-        </blockquote>
-        <blockquote class="blockquote text-center">
-          <p class="mb-0">An investment in knowledge pays the best interest.</p>
-          <footer class="blockquote-footer">Benjamin Franklin in <cite title="Source Title">Freedom Press</cite></footer>
-        </blockquote>
-        <blockquote class="blockquote text-center">
-          <p class="mb-0">How many millionaires do you know who have become wealthy by investing in savings accounts? I rest my case.</p>
-          <footer class="blockquote-footer">Robert G. Allen in <cite title="Source Title">Market News</cite></footer>
-        </blockquote>
-      </div>
-      <div id="category2" class="hide">
-        <blockquote class="blockquote text-center">
-          <p class="mb-0">Investing should be more like watching paint dry or watching grass grow. If you want excitement, take $800 and go to Las Vegas.</p>
-          <footer class="blockquote-footer">Paul Samuelson in <cite title="Source Title">Financial News</cite></footer>
-        </blockquote>
-        <blockquote class="blockquote text-center">
-          <p class="mb-0">I will tell you how to become rich. Close the doors. Be fearful when others are greedy. Be greedy when others are fearful.</p>
-          <footer class="blockquote-footer">Warren Buffett in <cite title="Source Title">Finance Paper</cite></footer>
-        </blockquote>
-        <blockquote class="blockquote text-center">
-          <p class="mb-0">It's not how much money you make, but how much money you keep, how hard it works for you, and how many generations you keep it for.</p>
-          <footer class="blockquote-footer">Robert Kiyosaki in <cite title="Source Title">Finance Blog</cite></footer>
-        </blockquote>
-      </div>
-      <div id="category3" class="hide">
-        <blockquote class="blockquote text-center">
-          <p class="mb-0">The stock market is filled with individuals who know the price of everything, but the value of nothing.</p>
-          <footer class="blockquote-footer">Phillip Fisher in <cite title="Source Title">Page Finance</cite></footer>
-        </blockquote>
-        <blockquote class="blockquote text-center">
-          <p class="mb-0">Financial peace isn't the acquisition of stuff. It's learning to live on less than you make, so you can give money back and have money to invest. You can't win until you do this.</p>
-          <footer class="blockquote-footer">Dave Ramsey in <cite title="Source Title">Daily News</cite></footer>
-        </blockquote>
-        <blockquote class="blockquote text-center">
-          <p class="mb-0">You get recessions, you have stock market declines. If you don't understand that's going to happen, then you're not ready, you won't do well in the markets.</p>
-          <footer class="blockquote-footer">Peter Lynch in <cite title="Source Title">Market News</cite></footer>
-        </blockquote>
-      </div>
-    </section>
-    <!--Business Cards-->
-    <section id="card-jumbo" class="jumbotron jumbotron-fluid">
+    </nav>
+    <!--Head Banner-->
+    <div id="banner-jumbo-h" class="jumbotron">
       <div class="container">
-        <h1>We offer the fastest and most convenient services worldwide</h1>
-        <p class="lead">In today’s competitive financial environment, we know that you have a lot of options to choose from in the investment marketplace. It’s our mission to provide the highest level of customer service and dedication to satisfy your long-term needs.</p>
+        <h1 id="first-h" class="display-4 hide" style="margin-bottom: 10px; font-family: 'Lato'; font-size: 40px;">Open,
+          Honest, Hardworking.</h1>
+        <h1 id="second-h" class="display-4 hide" style="font-family: 'Lato'; font-size: 40px;">Expertise you need,
+          Service you deserve.</h1>
       </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-            <div class="card myCard">
-              <img width="48px" height="48px" style="margin: auto;" src="images/card1.png" alt="Card 1">
-              <div class="card-body">
-                <h5 class="card-title">Freedom</h5>
-                <p class="card-text">A wide variety of investment products built with the do-it-yourself investor in mind.</p>
-                <button style="margin-top: 10px; font-size: 16px;" type="button" class="btn btn-outline-info">Learn More</button>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-            <div class="card myCard">
-              <img width="48px" height="48px" style="margin: auto;" src="images/card2.png" alt="Card 2">
-              <div class="card-body">
-                <h5 class="card-title">Speed</h5>
-                <p class="card-text">Our strong network and agile platform allow you to complete trades and realize gains instantly.</p>
-                <button style="margin-top: 10px; font-size: 16px;" type="button" class="btn btn-outline-info">Learn More</button>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-            <div class="card myCard">
-              <img width="48px" height="48px" style="margin: auto;" src="images/card3.png" alt="Card 3">
-              <div class="card-body">
-                <h5 class="card-title">Research</h5>
-                <p class="card-text">In-depth research and market analysis tools to support all types of investment strategies.</p>
-                <button style="margin-top: 10px; font-size: 16px;" type="button" class="btn btn-outline-info">Learn More</button>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-            <div class="card myCard">
-              <img width="48px" height="48px" style="margin: auto;" src="images/card4.png" alt="Card 4">
-              <div class="card-body">
-                <h5 class="card-title">Stocks</h5>
-                <p class="card-text">Buying stocks is the most fundamental investing activity. Learn to analyze, select, and trade stocks.</p>
-                <button style="margin-top: 10px; font-size: 16px;" type="button" class="btn btn-outline-info">Learn More</button>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-            <div class="card myCard">
-              <img width="48px" height="48px" style="margin: auto;" src="images/card5.png" alt="Card 5">
-              <div class="card-body">
-                <h5 class="card-title">Cryptocurrency</h5>
-                <p class="card-text">Our customers can invest in the hottest cryptocurrencies such as Bitcoin and Ethereum.</p>
-                <button style="margin-top: 10px; font-size: 16px;" type="button" class="btn btn-outline-info">Learn More</button>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-            <div class="card myCard">
-              <img width="48px" height="48px" style="margin: auto;" src="images/card6.png" alt="Card 6">
-              <div class="card-body">
-                <h5 class="card-title">Information</h5>
-                <p class="card-text">We offer a wide selection of resources to help investors of all experience levels.</p>
-                <button style="margin-top: 10px; font-size: 16px;" type="button" class="btn btn-outline-info">Learn More</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!--Foot Banner-->
-    <section id="banner-jumbo-f" class="jumbotron">
-      <div class="container">
-        <h1>Interested in our business? Reach out now.</h1>
-        <p class="lead">We have the best customer services team and they are ready to help you.</p>
-        <h4>(888) 000-2222</h4>
-        <button type="button" class="btn btn-transparent">Frequently Asked Questions</button>
-      </div>
-    </section>
-    <!--Footer-->
-    <footer id="foot-jumbo" class="jumbotron" style="padding-bottom: 20px;">
-      <div class="container">
-        <img id="foot-logo" src="images/logo.png" width="64px" height="64px" alt="foot-logo">
-        <h4>SE Fortune Capital</h4>
-        <p class="lead" style="margin: 0 auto 40px;">Invest like a boss</p>
-        <p>2018© SE Fortune Capital — All Rights Reserved | site map | terms & conditions | privacy policy | accessibility policy</p>
-        <p style="margin: 20px auto 60px">Investment Products: Not FDIC-Insured · No Bank Guarantee · May Lose Value</p>
-        <p class="legal">As a private investor, you need to request verbal and/or written information and explanations until you are sure you understand the warnings. Don't stop until you are fully aware, in quantitative terms, of what you stand to gain and lose, and what other potential investments there are with different risk/reward ratios.</p>
-        <p class="legal">It is essential that investment risk warnings be clear and sufficient not only to provide legal protection, but also to ensure that the message truly gets home. Firms and advisors should only sell products with a warning that conveys the real level of risk clearly. Unfortunately, what should be done and what is common practice are two different things. As an investor, it's crucial to know how much of your money you could lose and what circumstances could cause this to occur. If you are uncomfortable with the risks of the investment, remember there are always lower-risk alternatives.</p>
-        <p class="legal" style="margin: 0; margin-top: 20px;"><em>Note: This is a mock project, not a real business.</em></p>
-        <p class="legal" style="margin: 0;"><em>Designer: Eddy Soma</em></p>
-      </div>
-    </footer>
-    <!--JavaScripts Go Here-->
-    <div id="javascripts" style="display: none;">
-      <!--jQuery-->
-      <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-      <!--Popper JS-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-      <!--Bootstrap JS-->
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-      <!--Local JS-->
-      <script src="js/utilities.js"></script>
-      <script src="js/index.js"></script>
     </div>
-  </body>
+    <div id="head-hero" class="jumbotron">
+      <div class="container">
+        <h1 class="display-4">An investment stragegy today</h1>
+        <h1 class="display-4">Will become a great fortune tomorrow.</h1>
+        <p class="lead">We combine the convenience and ease of a digital platform with unbeatable customer service for a
+          decidely modern approach to alternative asset custody.</p>
+        <p>It’s never too late to become an investor. You may be well into middle age before realizing that life is
+          moving quickly, requiring a plan to deal with old age and retirement. Fear can take control if waiting too
+          long to set investment goals but that should go away once you set the plan into motion. Remember that all
+          investments start with the first dollar, whatever your age, income or outlook.</p>
+        <a id="portBtn" class="btn btn-lg btn-profile" href="portfolio.html" role="button">Build Your Portfolio</a>
+        <a id="newsBtn" class="btn btn-lg" href="news.html" role="button">Latest Market Data</a>
+      </div>
+    </div>
+  </header>
+  <!--Famous Quotes-->
+  <section id="intro-section" class="container">
+    <h1>Famous Quotes from experienced investors</h1>
+    <ul id="quote-panel" class="nav nav-pills nav-fill">
+      <li rel="category1" class="nav-item">
+        <span class="nav-link active">Explore opportunities</span>
+      </li>
+      <li rel="category2" class="nav-item">
+        <span class="nav-link">Know yourself</span>
+      </li>
+      <li rel="category3" class="nav-item">
+        <span class="nav-link">Learn the market</span>
+      </li>
+    </ul>
+    <div id="category1" class="show">
+      <blockquote class="blockquote text-center">
+        <p class="mb-0">You do things when the opportunities come along. I’ve had periods in my life when I’ve had a
+          bundle of ideas come along, and I’ve had long dry spells. If I get an idea next week, I’ll do something. If
+          not, I won’t do a damn thing.</p>
+        <footer class="blockquote-footer">Warren Buffett in <cite title="Source Title">Finance Blog</cite></footer>
+      </blockquote>
+      <blockquote class="blockquote text-center">
+        <p class="mb-0">An investment in knowledge pays the best interest.</p>
+        <footer class="blockquote-footer">Benjamin Franklin in <cite title="Source Title">Freedom Press</cite></footer>
+      </blockquote>
+      <blockquote class="blockquote text-center">
+        <p class="mb-0">How many millionaires do you know who have become wealthy by investing in savings accounts? I
+          rest my case.</p>
+        <footer class="blockquote-footer">Robert G. Allen in <cite title="Source Title">Market News</cite></footer>
+      </blockquote>
+    </div>
+    <div id="category2" class="hide">
+      <blockquote class="blockquote text-center">
+        <p class="mb-0">Investing should be more like watching paint dry or watching grass grow. If you want excitement,
+          take $800 and go to Las Vegas.</p>
+        <footer class="blockquote-footer">Paul Samuelson in <cite title="Source Title">Financial News</cite></footer>
+      </blockquote>
+      <blockquote class="blockquote text-center">
+        <p class="mb-0">I will tell you how to become rich. Close the doors. Be fearful when others are greedy. Be
+          greedy when others are fearful.</p>
+        <footer class="blockquote-footer">Warren Buffett in <cite title="Source Title">Finance Paper</cite></footer>
+      </blockquote>
+      <blockquote class="blockquote text-center">
+        <p class="mb-0">It's not how much money you make, but how much money you keep, how hard it works for you, and
+          how many generations you keep it for.</p>
+        <footer class="blockquote-footer">Robert Kiyosaki in <cite title="Source Title">Finance Blog</cite></footer>
+      </blockquote>
+    </div>
+    <div id="category3" class="hide">
+      <blockquote class="blockquote text-center">
+        <p class="mb-0">The stock market is filled with individuals who know the price of everything, but the value of
+          nothing.</p>
+        <footer class="blockquote-footer">Phillip Fisher in <cite title="Source Title">Page Finance</cite></footer>
+      </blockquote>
+      <blockquote class="blockquote text-center">
+        <p class="mb-0">Financial peace isn't the acquisition of stuff. It's learning to live on less than you make, so
+          you can give money back and have money to invest. You can't win until you do this.</p>
+        <footer class="blockquote-footer">Dave Ramsey in <cite title="Source Title">Daily News</cite></footer>
+      </blockquote>
+      <blockquote class="blockquote text-center">
+        <p class="mb-0">You get recessions, you have stock market declines. If you don't understand that's going to
+          happen, then you're not ready, you won't do well in the markets.</p>
+        <footer class="blockquote-footer">Peter Lynch in <cite title="Source Title">Market News</cite></footer>
+      </blockquote>
+    </div>
+  </section>
+  <!--Business Cards-->
+  <section id="card-jumbo" class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1>We offer the fastest and most convenient services worldwide</h1>
+      <p class="lead">In today’s competitive financial environment, we know that you have a lot of options to choose
+        from in the investment marketplace. It’s our mission to provide the highest level of customer service and
+        dedication to satisfy your long-term needs.</p>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+          <div class="card myCard">
+            <img width="48px" height="48px" style="margin: auto;" src="images/card1.png" alt="Card 1">
+            <div class="card-body">
+              <h5 class="card-title">Freedom</h5>
+              <p class="card-text">A wide variety of investment products built with the do-it-yourself investor in mind.
+              </p>
+              <button style="margin-top: 10px; font-size: 16px;" type="button" class="btn btn-outline-info">Learn
+                More</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+          <div class="card myCard">
+            <img width="48px" height="48px" style="margin: auto;" src="images/card2.png" alt="Card 2">
+            <div class="card-body">
+              <h5 class="card-title">Speed</h5>
+              <p class="card-text">Our strong network and agile platform allow you to complete trades and realize gains
+                instantly.</p>
+              <button style="margin-top: 10px; font-size: 16px;" type="button" class="btn btn-outline-info">Learn
+                More</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+          <div class="card myCard">
+            <img width="48px" height="48px" style="margin: auto;" src="images/card3.png" alt="Card 3">
+            <div class="card-body">
+              <h5 class="card-title">Research</h5>
+              <p class="card-text">In-depth research and market analysis tools to support all types of investment
+                strategies.</p>
+              <button style="margin-top: 10px; font-size: 16px;" type="button" class="btn btn-outline-info">Learn
+                More</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+          <div class="card myCard">
+            <img width="48px" height="48px" style="margin: auto;" src="images/card4.png" alt="Card 4">
+            <div class="card-body">
+              <h5 class="card-title">Stocks</h5>
+              <p class="card-text">Buying stocks is the most fundamental investing activity. Learn to analyze, select,
+                and trade stocks.</p>
+              <button style="margin-top: 10px; font-size: 16px;" type="button" class="btn btn-outline-info">Learn
+                More</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+          <div class="card myCard">
+            <img width="48px" height="48px" style="margin: auto;" src="images/card5.png" alt="Card 5">
+            <div class="card-body">
+              <h5 class="card-title">Cryptocurrency</h5>
+              <p class="card-text">Our customers can invest in the hottest cryptocurrencies such as Bitcoin and
+                Ethereum.</p>
+              <button style="margin-top: 10px; font-size: 16px;" type="button" class="btn btn-outline-info">Learn
+                More</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+          <div class="card myCard">
+            <img width="48px" height="48px" style="margin: auto;" src="images/card6.png" alt="Card 6">
+            <div class="card-body">
+              <h5 class="card-title">Information</h5>
+              <p class="card-text">We offer a wide selection of resources to help investors of all experience levels.
+              </p>
+              <button style="margin-top: 10px; font-size: 16px;" type="button" class="btn btn-outline-info">Learn
+                More</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--Foot Banner-->
+  <section id="banner-jumbo-f" class="jumbotron">
+    <div class="container">
+      <h1>Interested in our business? Reach out now.</h1>
+      <p class="lead">We have the best customer services team and they are ready to help you.</p>
+      <h4>(888) 000-2222</h4>
+      <button type="button" class="btn btn-transparent">Frequently Asked Questions</button>
+    </div>
+  </section>
+  <!--Footer-->
+  <footer id="foot-jumbo" class="jumbotron" style="padding-bottom: 20px;">
+    <div class="container">
+      <img id="foot-logo" src="images/logo.png" width="64px" height="64px" alt="foot-logo">
+      <h4>SE Fortune Capital</h4>
+      <p class="lead" style="margin: 0 auto 40px;">Invest like a boss</p>
+      <p>2018© SE Fortune Capital — All Rights Reserved | site map | terms & conditions | privacy policy | accessibility
+        policy</p>
+      <p style="margin: 20px auto 60px">Investment Products: Not FDIC-Insured · No Bank Guarantee · May Lose Value</p>
+      <p class="legal">As a private investor, you need to request verbal and/or written information and explanations
+        until you are sure you understand the warnings. Don't stop until you are fully aware, in quantitative terms, of
+        what you stand to gain and lose, and what other potential investments there are with different risk/reward
+        ratios.</p>
+      <p class="legal">It is essential that investment risk warnings be clear and sufficient not only to provide legal
+        protection, but also to ensure that the message truly gets home. Firms and advisors should only sell products
+        with a warning that conveys the real level of risk clearly. Unfortunately, what should be done and what is
+        common practice are two different things. As an investor, it's crucial to know how much of your money you could
+        lose and what circumstances could cause this to occur. If you are uncomfortable with the risks of the
+        investment, remember there are always lower-risk alternatives.</p>
+      <p class="legal" style="margin: 0; margin-top: 20px;"><em>Note: This is a mock project, not a real business.</em>
+      </p>
+      <p class="legal" style="margin: 0;"><em>Designer: Eddy Soma</em></p>
+    </div>
+  </footer>
+  <!--JavaScripts Go Here-->
+  <div id="javascripts" style="display: none;">
+    <!--jQuery-->
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+      integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <!--Popper JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"></script>
+    <!--Bootstrap JS-->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"></script>
+    <!--Local JS-->
+    <script src="js/utilities.js"></script>
+    <script src="js/index.js"></script>
+  </div>
+</body>
+
 </html>

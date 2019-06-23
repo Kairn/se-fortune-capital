@@ -119,11 +119,11 @@ const ALL_CRYPTOS = [
 	"eos",
 	"eth",
 	"bnb",
-	// "bch",
+	"bcc",
 	"xrp",
 	"ltc",
 	"etc",
-	// "iot",
+	"iota",
 	"qtum",
 ];
 
