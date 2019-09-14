@@ -6,7 +6,7 @@ SE Fortune Capital (SEFC) is an online investment website that provides the late
 
 ***This website is merely a market simulator, meaning that no real transaction will ever occur. Users can deposit any amount of USD into their accounts, and any asset that a user owns remains virtual forever.***
 
-**API Update: Great news, I have changed the source code to accommodate IEX Cloud API migration in JUNE 2019. All features of the website are now functional again!**
+**API Update: Sad news, IEX had a few changes to their API policies again, including restricting access to certain endpoints for free accounts. I have decided to stop code updates due to their excessive inconsistencies.**
 
 ## Build
 ### Prerequisites
